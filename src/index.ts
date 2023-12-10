@@ -2,6 +2,7 @@ import express, { Express, Response, Request, NextFunction } from "express";
 import {conn} from "./db/dbConnction";
 import { RowDataPacket } from "mysql2";
 import {registerRouter} from './api/register';
+import {loginRouter} from './api/login';
 
 const app = express();
 app.use(express.json());
@@ -10,6 +11,7 @@ app.use(express.json());
 app.listen(8080, () => {console.log("포트 8080으로 서버 대기중...");});
 
 app.post('/api/register', registerRouter);
+app.post('/api/login', loginRouter);
 
 
 // app.get('/getQA/:id/:title', (req:Request, res:Response) => {
